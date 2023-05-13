@@ -33,6 +33,8 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    $properties
+    $url
   end
 end
 # rubocop:enable Style/GlobalVars
