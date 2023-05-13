@@ -1,0 +1,8 @@
+<div class="card prev mx-auto my-2">
+  <img class="thumb" src=<%= property['title_image_thumb'] ? property['title_image_thumb'] : "https://galeriasixtapaluca.com/images/sinimagen.png" %>>
+  <div class="card-body prev_details">
+    <h5 class="card-title"><%= property['title'] %></h5>
+    <p class="card-text"><%= property['location'] %></p>
+  </div>
+  <%= link_to 'Details', property_path(property['public_id']), class: 'btn btn-primary w-100 position-absolute bottom-0' %>
+</div>

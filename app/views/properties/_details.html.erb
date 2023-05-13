@@ -1,0 +1,63 @@
+<%property.each do |item|%>
+  <div class="d-flex flex-md-row flex-column details_container mx-auto p-5 bg-white">
+    <div class="bd-example image">
+      <div>
+        <img src= <%=item['title_image_full'] ? item['title_image_full'] : "https://galeriasixtapaluca.com/images/sinimagen.png"%> class="d-block w-100 max_height" alt="..." />
+      </div>
+      <%= render "operations", operations: item['operations'][0] %>
+    </div>
+    <div class="table_width table_details">
+      <div class="ml-3">
+        <h2><%=item['title']%></h2>
+        <h4><%=item['property_type']%></h4>
+      </div>
+      <p>
+        <button class="btn text-white lg_button disable primary_bg no_hover" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Address
+        </button>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <%=item['location']%>
+        </div>
+      </div>
+      <h5>Caracteristicas</h5>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th scope="row">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M20 9.557V3h-2v2H6V3H4v6.557C2.81 10.25 2 11.525 2 13v4a1 1 0 0 0 1 1h1v4h2v-4h12v4h2v-4h1a1 1 0 0 0 1-1v-4c0-1.475-.811-2.75-2-3.443zM18 7v2h-5V7h5zM6 7h5v2H6V7zm14 9H4v-3c0-1.103.897-2 2-2h12c1.103 0 2 .897 2 2v3z"></path></svg>
+            </th>
+            <td><%=item['bedrooms'] ? item['bedrooms'] : 0%> Recámaras</td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M21 10H7V7c0-1.103.897-2 2-2s2 .897 2 2h2c0-2.206-1.794-4-4-4S5 4.794 5 7v3H3a1 1 0 0 0-1 1v2c0 2.606 1.674 4.823 4 5.65V22h2v-3h8v3h2v-3.35c2.326-.827 4-3.044 4-5.65v-2a1 1 0 0 0-1-1zm-1 3c0 2.206-1.794 4-4 4H8c-2.206 0-4-1.794-4-4v-1h16v1z"></path></svg>
+            </th>
+            <td><%=item['bathrooms'] ? item['bathrooms'] : 0%> Baños</td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="m20.772 10.156-1.368-4.105A2.995 2.995 0 0 0 16.559 4H7.441a2.995 2.995 0 0 0-2.845 2.051l-1.368 4.105A2.003 2.003 0 0 0 2 12v5c0 .753.423 1.402 1.039 1.743-.013.066-.039.126-.039.195V21a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-2h12v2a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-2.062c0-.069-.026-.13-.039-.195A1.993 1.993 0 0 0 22 17v-5c0-.829-.508-1.541-1.228-1.844zM4 17v-5h16l.002 5H4zM7.441 6h9.117c.431 0 .813.274.949.684L18.613 10H5.387l1.105-3.316A1 1 0 0 1 7.441 6z"></path><circle cx="6.5" cy="14.5" r="1.5"></circle><circle cx="17.5" cy="14.5" r="1.5"></circle></svg>
+            </th>
+            <td><%=item['parking_spaces'] ? item['parking_spaces'] : 0%> Estacionamientos</td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M3 5v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2H5c-1.103 0-2 .897-2 2zm16.002 14H5V5h14l.002 14z"></path><path d="M15 12h2V7h-5v2h3zm-3 3H9v-3H7v5h5z"></path></svg>
+            </th>
+            <td><%=item['lot_size']%> m2 de area</td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M19 2H9c-1.103 0-2 .897-2 2v6H5c-1.103 0-2 .897-2 2v9a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4c0-1.103-.897-2-2-2zM5 12h6v8H5v-8zm14 8h-6v-8c0-1.103-.897-2-2-2H9V4h10v16z"></path><path d="M11 6h2v2h-2zm4 0h2v2h-2zm0 4.031h2V12h-2zM15 14h2v2h-2zm-8 .001h2v2H7z"></path></svg>
+            </th>
+            <td><%=item['construction_size']%> m2 de construcción</td>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to 'Regresar', next_page_properties_path(url: $url), class: 'btn btn-warning w-100'%>
+      <br />
+    </div>
+  </div>
+<%end%>
