@@ -1,0 +1,5 @@
+<%= render "header" %>
+<div class="bg_image  w-100 vh-100 pt-5">
+  <% property = $properties.select { |item| item['public_id'] == params[:id] } %>
+  <%= render "details", property: property %>
+</div>
