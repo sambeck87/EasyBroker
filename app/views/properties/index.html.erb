@@ -1,0 +1,24 @@
+<%= render "header" %>
+<div class="bg_image w-100 h-100 p-0">
+<div class="p-5">
+  <div class="prev_container">
+    <% $properties.each do |property| %>
+      <%= render "previo", property: property %>
+    <% end %>
+  </div>
+  <% @url_params = params[:url] %>
+  <% unless @url_params.nil? || @url_params.match(/page=(\d+)/).nil? %>
+    <% page_number = @url_params.match(/page=(\d+)/)[1].to_i %>
+    <% if (page_number > 1) %>
+      <% new_page_number = page_number - 1 %>
+      <% @prev_page = @url_params.sub(/(\d+)$/, new_page_number.to_s) %>
+      <%= link_to 'Back', next_page_properties_path(url: @prev_page), class: 'btn btn-primary' %>
+    <% end %>
+  <% end %>
+  <% if @next_page.present? %>
+    <%= link_to 'Next', next_page_properties_path(url: @next_page), class: 'btn btn-primary' %>
+  <% else %>
+    <p>No hay más propiedades</p>
+  <% end %>
+</div>
+</div>
